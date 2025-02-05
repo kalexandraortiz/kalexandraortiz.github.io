@@ -9510,6 +9510,9 @@ button.bg-dark:focus {
 
 .font-weight-bold {
   font-weight: 700 !important;
+  font-size: 24px; 
+  color: #333; 
+  margin-bottom: 10px;
 }
 
 .font-weight-bolder {
@@ -9995,12 +9998,76 @@ h6,
   box-sizing: border-box;
 }
 
+.gallery-item img {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-container {
+  max-height: 80vh; /* Tamaño máximo para evitar una galería muy larga */
+  overflow-y: scroll; /* Permite el desplazamiento vertical */
+}
+
+.view-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-more-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.view-more-container button:hover {
+  background-color: #0056b3;
+}
+
+.project-detail {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-image {
+  flex: 1;
+}
+
+.project-info h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.project-info ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.project-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 .row-gallery {
   width: 100%;
   max-width: 1170px;
   margin: 0 auto;
   padding: 0;
   clear: both;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px;
 }
 
 .row-gallery img {
@@ -10080,24 +10147,73 @@ h6,
   opacity: 1;
 }
 
+.tech-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  display: block;
+}
+
+.tech-item {
+  background-color: #343a40;
+  max-width: 60%;
+  color: #fff;  
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 5px; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: scale(1.05); 
+}
+
+.tech-item:last-child {
+  margin-bottom: 0; 
+}
+
+.button-port {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  color: #0f8d9e; 
+  border: none; 
+  border-radius: 50%; 
+  padding: 10px; 
+  background-color: transparent;
+  font-size: 30px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+}
+
+.button-port:hover {
+  color: #0f8d9e;
+}
+
 .port {
-  position: absolute;
-  width: 100%;
+  position: absolute; 
+  top: 0; 
+  left: 10%; 
+  transform: translate(-50%, -50%); 
+  max-width: 80%;
   height: auto;
-  top: 0;
-  left: 0;
-  padding-bottom: 100px;
-  padding-top: 100px;
+  padding: 50px;
   background: #ffffff;
   background-color: #fafafa;
   z-index: 103;
   visibility: hidden;
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  border-bottom: 1px solid #d0d0d0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+.port.active {
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .port img {
@@ -10108,10 +10224,25 @@ h6,
 
 .port .description {
   float: left;
-  width: 50%;
   max-height: 100%;
-  padding: 0 40px 40px;
+  max-width: 40%; 
   overflow: auto;
+  flex: 1 1 100%; 
+  padding: 20px; 
+  background-color: #f7f7f7; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.description h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description p {
+  font-size: 1rem;
+  color: #555;
 }
 
 .port h1 {
